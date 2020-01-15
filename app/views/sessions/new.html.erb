@@ -4,12 +4,12 @@
     
     <p>
     <%= label_tag(:name) %>
-    <%= text_field_tag(:name)%>
+    <%= select_tag 'user_name', options_from_collection_for_select(@users, 'name','name') %>
     </p>
 
     <p>
     <%= label_tag(:password) %>
-    <%= text_field_tag(:password)%>
+    <%= password_field_tag(:password)%>
     </p>
 
      <p>

@@ -8,6 +8,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+
+
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -17,7 +19,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <% if @user%>
+            <% if @user.admin %>
+              <a class="navbar-brand"/>ADMIN</a>
+            <% end %>
+          <% end %>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        
+          <% if !logged_in? %>
+            <a class="navbar-brand" href="<%= '/users/new' %>"/>Sign Up</a>
+            <a class="navbar-brand" href="<%= '/signin' %>"/>Log In</a>
+          <% else %>
+              <a class="navbar-brand" href="<%= @user %>"/><%= @user.name %>'s Profile</a>
+              <a class="navbar-brand" href="<%= '/signout' %>"/>Log Out</a>
+          <% end %>
+        
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

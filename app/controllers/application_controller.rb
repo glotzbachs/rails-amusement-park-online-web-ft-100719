@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :authenticate_required
 
   def current_user
-    @current_user ||= User.find(session[:user_id])
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   def logged_in?
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_required
     if !logged_in?
-      redirect_to '/signin'
+      redirect_to '/'
     end
   end
 end

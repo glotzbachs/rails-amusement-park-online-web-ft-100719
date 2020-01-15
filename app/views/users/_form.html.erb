@@ -31,8 +31,8 @@
     </p>
 
     <p>
-    <%= f.label :admin, 'Admin?' %>
-    <%= f.select(:admin, {'Yes' => true, 'No' => false}) %>
+    <%= f.label :admin, 'Check if you are an admin' %>
+    <%= f.check_box :admin %>
     </p>
 
     <%= f.submit%>
