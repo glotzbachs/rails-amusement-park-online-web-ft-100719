@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
-  get 'attractions/index'
-  get 'attractions/show'
-  get 'attractions/new'
-  get 'attractions/edit'
   root 'welcome#home'
-  get 'welcome/home'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
-  get 'sessions/destroy'
+  get '/logout', to: 'sessions#destroy'
 
   resources :users
   resources :attractions
